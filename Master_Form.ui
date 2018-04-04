@@ -23,8 +23,20 @@
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuhosts">
+    <property name="title">
+     <string>hosts</string>
+    </property>
+    <addaction name="actionsearch_host"/>
+   </widget>
+   <addaction name="menuhosts"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionsearch_host">
+   <property name="text">
+    <string>scan live hosts</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
