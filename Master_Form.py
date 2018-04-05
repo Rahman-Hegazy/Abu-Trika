@@ -23,6 +23,10 @@ class Ui_MainWindow(object):
         self.listView = QtWidgets.QListView(self.centralwidget)
         self.listView.setGeometry(QtCore.QRect(10, 90, 256, 331))
         self.listView.setObjectName("listView")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(120, 50, 83, 25))
+        self.pushButton.setObjectName("pushButton")
+        self.pushButton.clicked.connect(exit)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 328, 22))
@@ -36,14 +40,14 @@ class Ui_MainWindow(object):
         self.actionsearch_host = QtWidgets.QAction(MainWindow)
         self.actionsearch_host.setObjectName("actionsearch_host")
         self.menuhosts.addAction(self.actionsearch_host)
-        self.menubar.addAction(self.menuhosts.menuAction())
-
+        self.menubar.addAction(self.menuhosts.menuAction()) 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
+        
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Abu-Trika"))
+        self.pushButton.setText(_translate("MainWindow", "PushButton"))
         self.menuhosts.setTitle(_translate("MainWindow", "hosts"))
         self.actionsearch_host.setText(_translate("MainWindow", "scan live hosts"))
 
