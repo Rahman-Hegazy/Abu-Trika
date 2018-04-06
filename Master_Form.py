@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from source import codes
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(120, 50, 83, 25))
         self.pushButton.setObjectName("pushButton")
-        self.pushButton.clicked.connect(exit)
+        self.pushButton.clicked.connect(codes.code101.close_)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 328, 22))
@@ -39,6 +39,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         self.actionsearch_host = QtWidgets.QAction(MainWindow)
         self.actionsearch_host.setObjectName("actionsearch_host")
+        self.actionsearch_host.triggered.connect(codes.code101.close_)
         self.menuhosts.addAction(self.actionsearch_host)
         self.menubar.addAction(self.menuhosts.menuAction()) 
         self.retranslateUi(MainWindow)
