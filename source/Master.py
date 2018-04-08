@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from source.codes import code101
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -59,7 +60,7 @@ class Ui_Form(object):
         self.line_network = QtWidgets.QLineEdit(self.splitter_2)
         self.line_network.setObjectName("line_network")
         self.listWidget = QtWidgets.QListWidget(self.tab_hosts)
-        self.listWidget.setGeometry(QtCore.QRect(70, 140, 256, 192))
+        self.listWidget.setGeometry(QtCore.QRect(0, 100, 401, 351))
         self.listWidget.setObjectName("listWidget")
         self.Tabs.addTab(self.tab_hosts, "")
         self.tab_2 = QtWidgets.QWidget()
@@ -83,14 +84,4 @@ class Ui_Form(object):
         self.label_network.setText(_translate("Form", "Network"))
         self.Tabs.setTabText(self.Tabs.indexOf(self.tab_hosts), _translate("Form", "Hosts"))
         self.Tabs.setTabText(self.Tabs.indexOf(self.tab_2), _translate("Form", "Tab 2"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
 

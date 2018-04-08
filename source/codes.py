@@ -1,3 +1,5 @@
+from PyQt5 import QtCore, QtGui, QtWidgets
+
 class code101(object):
 	"""docstring for codeclass"""
 	def __init__(self, arg):
@@ -9,3 +11,7 @@ class code101(object):
 
 	def close_():
 			exit()	
+
+	def test():
+		# obj.listWidget.addItem('192.12312.12312.3')
+		print('hello')
