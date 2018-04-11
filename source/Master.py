@@ -7,7 +7,6 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from source.codes import code101
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -60,8 +59,13 @@ class Ui_Form(object):
         self.line_network = QtWidgets.QLineEdit(self.splitter_2)
         self.line_network.setObjectName("line_network")
         self.listWidget = QtWidgets.QListWidget(self.tab_hosts)
-        self.listWidget.setGeometry(QtCore.QRect(0, 100, 401, 351))
+        self.listWidget.setGeometry(QtCore.QRect(90, 90, 221, 351))
         self.listWidget.setObjectName("listWidget")
+        self.progressBar = QtWidgets.QProgressBar(self.tab_hosts)
+        self.progressBar.setGeometry(QtCore.QRect(250, 60, 118, 23))
+        self.progressBar.setProperty("value", 24)
+        self.progressBar.setTextVisible(False)
+        self.progressBar.setObjectName("progressBar")
         self.Tabs.addTab(self.tab_hosts, "")
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
