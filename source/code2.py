@@ -9,7 +9,7 @@ class code202(object):
 
 	def scan(ip):
 		nm = nmap.PortScanner()
-		nm.scan(hosts=ip, arguments='-n -sP -PE -PR -PA21,23,80,3389')
+		nm.scan(hosts=ip, arguments='-n -sP -PE  -PA21,23,80,3389') #PR
 		return nm.all_hosts()
 
 		# hosts_list = [(x, nm[x]['status']['state']) for x in nm.all_hosts()]

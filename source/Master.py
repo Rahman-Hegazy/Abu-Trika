@@ -80,9 +80,9 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Abu-Trika"))
         Form.setToolTip(_translate("Form", "Abu-Trika"))
-        self.comboBox.setItemText(0, _translate("Form", "8"))
+        self.comboBox.setItemText(0, _translate("Form", "24"))
         self.comboBox.setItemText(1, _translate("Form", "16"))
-        self.comboBox.setItemText(2, _translate("Form", "24"))
+        self.comboBox.setItemText(2, _translate("Form", "8"))
         self.lable_netmask.setText(_translate("Form", "netmask "))
         self.pushButton.setText(_translate("Form", "Scan "))
         self.label_network.setText(_translate("Form", "Network"))

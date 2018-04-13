@@ -14,6 +14,7 @@ if __name__ == "__main__":
     ui.pushButton.clicked.connect(btn_scan.start)
     Form.show()
     sys.exit(app.exec_())
+	
 
     
 			
