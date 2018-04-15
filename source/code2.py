@@ -15,3 +15,24 @@ class code202(object):
 		# hosts_list = [(x, nm[x]['status']['state']) for x in nm.all_hosts()]
 		# for host, status in hosts_list:
 		# 	print('{0}:{1}'.format(host, status))		
+
+
+	def ipChk(ip_str):
+	    if len(ip_str.split()) == 1:
+	        ipList = ip_str.split('.')
+	        if len(ipList) == 4:
+	            for i, item in enumerate(ipList):
+	                try:
+	                    ipList[i] = int(item)
+	                except:
+	                    return False
+	                if not isinstance(ipList[i], int):
+	                    return False
+	            if max(ipList) < 256:
+	                return True
+	            else:
+	                return False
+	        else:
+	            return False
+	    else:
+	        return False

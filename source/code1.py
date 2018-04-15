@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from . import code2
-import threading, time, socket
+
 
 
 
@@ -14,23 +14,27 @@ class code101(QtCore.QThread):
 	signal2=QtCore.pyqtSignal()
 
 
+
 	def __del__(self):
 			self.wait()	
 
 
 	def run(self):
-		
 		network=self.obj.line_network.text()
 		subnet=self.obj.comboBox.currentText()
 		self.obj.listWidget.clear()
-		self.obj.listWidget.addItem('working....')
+		self.obj.listWidget_2.clear()
+		self.obj.listWidget.addItem('working....Plz don\'t close')
 		self.signal1.connect(self.disable)
 		self.signal1.emit()
 		
 
 		try:
 			
-			socket.inet_aton(network)
+			if not(code2.code202.ipChk(network)):
+				raise Exception('invalid ip')
+			
+
 			# print(network+'/'+subnet)
 			res=code2.code202.scan(network+'/'+subnet)
 			
@@ -43,10 +47,9 @@ class code101(QtCore.QThread):
 
 			else :
 				self.obj.listWidget.clear()
-
-			
-				for r in res:
-					self.obj.listWidget.addItem(r)
+				self.obj.listWidget_2.clear()
+				self.obj.listWidget.addItems(res)	
+				self.obj.listWidget_2.addItems(res)	
 			
 
 
@@ -59,6 +62,10 @@ class code101(QtCore.QThread):
 				self.signal2.connect(self.enable)
 				self.signal2.emit()
 
+	# def run(self):
+	# 	print(code2.code202.ipChk('192.168.1.1'))
+	
+
 
 	def disable(self):
 			self.obj.pushButton.setEnabled(False)
@@ -68,5 +75,64 @@ class code101(QtCore.QThread):
 
 	def enable(self):
 			self.obj.pushButton.setEnabled(True)		
-			self.obj.comboBox.setEnabled(False)
-			self.obj.line_network.setEnabled(False)
+			self.obj.comboBox.setEnabled(True)
+			self.obj.line_network.setEnabled(True)
+
+
+
+
+
+
+
+# class code102(QtCore.QThread):
+
+# 	def __init__(self, obj):
+# 		QtCore.QThread.__init__(self)
+# 		self.obj=obj
+	
+# 	def __del__(self):
+# 		self.wait()
+
+
+# 	def run(self):
+# 		 pass
+
+
+
+
+class code102(QtCore.QThread):
+
+	def __init__(self, obj):
+		QtCore.QThread.__init__(self)
+		self.obj=obj
+	
+	def __del__(self):
+		self.wait()
+
+
+	def run(self):
+		items=self.obj.listWidget_2.selectedItems()
+		if not items : return
+		for item in items:	
+			 self.obj.listWidget_2.takeItem(self.obj.listWidget_2.row(item))
+			 self.obj.listWidget_3.addItem(item.text())
+
+
+
+class code103(QtCore.QThread):
+
+	def __init__(self, obj):
+		QtCore.QThread.__init__(self)
+		self.obj=obj
+	
+	def __del__(self):
+		self.wait()
+
+
+	def run(self):
+		items=self.obj.listWidget_3.selectedItems()
+		if not items : return
+		for item in items:	
+			 self.obj.listWidget_3.takeItem(self.obj.listWidget_3.row(item))
+			 self.obj.listWidget_2.addItem(item.text())
+
