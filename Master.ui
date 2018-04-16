@@ -38,7 +38,7 @@
    <string>Abu-Trika</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
+   <item row="0" column="1">
     <widget class="QTabWidget" name="Tab2">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -71,7 +71,7 @@
       <attribute name="title">
        <string>Hosts</string>
       </attribute>
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="combo_netmask">
        <property name="geometry">
         <rect>
          <x>70</x>
@@ -109,7 +109,7 @@
         <string>netmask </string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="btn_scan">
        <property name="geometry">
         <rect>
          <x>250</x>
@@ -151,7 +151,7 @@
         </property>
        </widget>
       </widget>
-      <widget class="QListWidget" name="listWidget">
+      <widget class="QListWidget" name="list_ip">
        <property name="geometry">
         <rect>
          <x>90</x>
@@ -182,7 +182,7 @@
       <attribute name="title">
        <string>auth</string>
       </attribute>
-      <widget class="QListWidget" name="listWidget_2">
+      <widget class="QListWidget" name="list_ip_2">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -195,7 +195,7 @@
         <enum>QAbstractItemView::ContiguousSelection</enum>
        </property>
       </widget>
-      <widget class="QListWidget" name="listWidget_3">
+      <widget class="QListWidget" name="list_ip_3">
        <property name="geometry">
         <rect>
          <x>230</x>
@@ -208,7 +208,7 @@
         <enum>QAbstractItemView::ContiguousSelection</enum>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="btn_to_auth">
        <property name="geometry">
         <rect>
          <x>180</x>
@@ -221,7 +221,7 @@
         <string>&gt;&gt;</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="btn_no_auth">
        <property name="geometry">
         <rect>
          <x>180</x>
@@ -234,17 +234,17 @@
         <string>&lt;&lt;</string>
        </property>
       </widget>
-      <widget class="QListWidget" name="listWidget_4">
+      <widget class="QListWidget" name="list_success">
        <property name="geometry">
         <rect>
          <x>230</x>
-         <y>240</y>
+         <y>230</y>
          <width>171</width>
          <height>211</height>
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="btn_auth">
        <property name="geometry">
         <rect>
          <x>40</x>
@@ -274,7 +274,7 @@
          <string>username :</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit">
+       <widget class="QLineEdit" name="line_user">
         <property name="placeholderText">
          <string>root</string>
         </property>
@@ -284,7 +284,7 @@
          <string>password :</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_2">
+       <widget class="QLineEdit" name="line_pass">
         <property name="echoMode">
          <enum>QLineEdit::Password</enum>
         </property>
@@ -297,7 +297,7 @@
          <string>password again :</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_3">
+       <widget class="QLineEdit" name="line_pass_again">
         <property name="echoMode">
          <enum>QLineEdit::Password</enum>
         </property>

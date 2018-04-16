@@ -36,3 +36,9 @@ class code202(object):
 	            return False
 	    else:
 	        return False
+
+
+	
+	def auth(user,password,ip):
+		#here goes the code of authentication         
+		
