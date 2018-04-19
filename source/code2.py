@@ -1,4 +1,4 @@
-import nmap
+import nmap,subprocess
 
 class code202(object):
 	"""docstring for code2"""
@@ -41,4 +41,6 @@ class code202(object):
 	
 	def auth(user,password,ip):
 		#here goes the code of authentication         
-		
+		pass
+		us=user+'@'+ip
+		subprocess.call(['ssh-copy-id',us])

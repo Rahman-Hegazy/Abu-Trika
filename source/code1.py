@@ -155,3 +155,10 @@ class code104(QtCore.QThread):
 				user=self.obj.line_user.text()
 				password=self.obj.line_pass.text()
 				
+				# items=self.obj.list_ip_3.items()
+
+				for item in items:
+					code2.code202.auth(user,password,item.text())
+
+					#add success to list_success !!
+					# add failed to list success!! but write fail next to it 
