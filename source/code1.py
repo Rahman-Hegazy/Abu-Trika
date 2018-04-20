@@ -60,7 +60,7 @@ class code101(QtCore.QThread):
  
 		except :
 				self.obj.list_ip.clear()
-				self.obj.list_ip.addItem("دخل اي بي عدل يابن المرة ")
+				self.obj.list_ip.addItem("please enter a valid ip")
 				self.signal2.connect(self.enable)
 				self.signal2.emit()
 
@@ -155,10 +155,24 @@ class code104(QtCore.QThread):
 				user=self.obj.line_user.text()
 				password=self.obj.line_pass.text()
 				
-				# items=self.obj.list_ip_3.items()
+				items=self.obj.list_ip_3.items()
 
 				for item in items:
-					code2.code202.auth(user,password,item.text())
+					if code2.code202.auth(user,password,item.text()):
+						self.obj.list_ip_3.takeItem(self.obj.list_ip_3.row(item))
+						self.obj.list_success.addItem(item.text()+' '+'auth failed')
+					else:
+						self.obj.list_ip_3.takeItem(self.obj.list_ip_3.row(item))
+						self.obj.list_success.addItem(item.text()+' '+'auth success')	
+						
+
+			else:
+				self.obj.list_success.clear()
+				self.obj.list_success.addItem("passwords don't match")
+
+		else:
+			self.obj.list_success.clear()
+			self.obj.list_success.addItem('please provide ur user name ')		
 
 					#add success to list_success !!
 					# add failed to list success!! but write fail next to it 

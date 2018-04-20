@@ -50,16 +50,20 @@ class code202(object):
 				child.sendline('yes')
 				print child.after,child.before
 			if index == 1:
-				child.sendline(self.passwd)
+				child.sendline(password)
 				child.expect('password:')
-				child.sendline(self.passwd)
-				print child.after,child.before
+				child.sendline(password)
+				# print child.after,child.before
+				return 0
 			if index == 2:
-				print '[ failed ]'
-				print child.after,child.before
+				# print '[ failed ]'
+				# print child.after,child.before
 				child.close()
+				return 1
 		except pexpect.TIMEOUT:
-			print child.after,child.before
+			# print child.after,child.before
 			child.close()
+			return 1
 		else:
-			print 'nada feito'
+			print 'failed'
+			return 1 
