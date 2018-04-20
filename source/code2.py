@@ -1,4 +1,4 @@
-import nmap,subprocess
+import nmap,subprocess,sys,os,pexpect
 
 class code202(object):
 	"""docstring for code2"""
@@ -41,6 +41,25 @@ class code202(object):
 	
 	def auth(user,password,ip):
 		#here goes the code of authentication         
-		pass
-		us=user+'@'+ip
-		subprocess.call(['ssh-copy-id',us])
+		str_ssh = '/usr/bin/ssh-copy-id  %s@%s' %(user,ip)
+		child = pexpect.spawn( str_ssh )
+		try:
+			index = child.expect(['continue connecting \(yes/no\)','\'s password:',pexpect.EOF],timeout=20)
+			print index
+			if index == 0:
+				child.sendline('yes')
+				print child.after,child.before
+			if index == 1:
+				child.sendline(self.passwd)
+				child.expect('password:')
+				child.sendline(self.passwd)
+				print child.after,child.before
+			if index == 2:
+				print '[ failed ]'
+				print child.after,child.before
+				child.close()
+		except pexpect.TIMEOUT:
+			print child.after,child.before
+			child.close()
+		else:
+			print 'nada feito'
