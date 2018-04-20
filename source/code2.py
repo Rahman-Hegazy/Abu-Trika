@@ -45,10 +45,10 @@ class code202(object):
 		child = pexpect.spawn( str_ssh )
 		try:
 			index = child.expect(['continue connecting \(yes/no\)','\'s password:',pexpect.EOF],timeout=20)
-			print index
+			print(index)
 			if index == 0:
 				child.sendline('yes')
-				print child.after,child.before
+				print(child.after,child.before)
 			if index == 1:
 				child.sendline(password)
 				child.expect('password:')
@@ -65,5 +65,5 @@ class code202(object):
 			child.close()
 			return 1
 		else:
-			print 'failed'
+			print('failed')
 			return 1 
