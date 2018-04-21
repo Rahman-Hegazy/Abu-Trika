@@ -178,7 +178,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_2">
+     <widget class="QWidget" name="tab_auth">
       <attribute name="title">
        <string>auth</string>
       </attribute>
@@ -305,6 +305,80 @@
          <string>password</string>
         </property>
        </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_controls">
+      <attribute name="title">
+       <string>controls</string>
+      </attribute>
+      <widget class="QListWidget" name="list_ip_4">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>221</width>
+         <height>271</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="list_success_2">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>30</y>
+         <width>131</width>
+         <height>61</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_shutdown">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>300</y>
+         <width>83</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>shutdown</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_restart">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>340</y>
+         <width>83</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>restart</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="line_check">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>130</y>
+         <width>113</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="line_recheck">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>200</y>
+         <width>113</width>
+         <height>25</height>
+        </rect>
+       </property>
       </widget>
      </widget>
     </widget>

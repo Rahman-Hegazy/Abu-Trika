@@ -1,4 +1,4 @@
-import nmap,subprocess,sys,os,pexpect
+import nmap,subprocess,sys,os #,pexpect
 
 class code202(object):
 	"""docstring for code2"""
@@ -39,31 +39,41 @@ class code202(object):
 
 
 	
-	def auth(user,password,ip):
-		#here goes the code of authentication         
-		str_ssh = '/usr/bin/ssh-copy-id  %s@%s' %(user,ip)
-		child = pexpect.spawn( str_ssh )
-		try:
-			index = child.expect(['continue connecting \(yes/no\)','\'s password:',pexpect.EOF],timeout=20)
-			print(index)
-			if index == 0:
-				child.sendline('yes')
-				print(child.after,child.before)
-			if index == 1:
-				child.sendline(password)
-				child.expect('password:')
-				child.sendline(password)
-				# print child.after,child.before
-				return 0
-			if index == 2:
-				# print '[ failed ]'
-				# print child.after,child.before
-				child.close()
-				return 1
-		except pexpect.TIMEOUT:
-			# print child.after,child.before
-			child.close()
-			return 1
-		else:
-			print('failed')
-			return 1 
+	# def auth(user,password,ip):
+	# 	#here goes the code of authentication         
+	# 	str_ssh = '/usr/bin/ssh-copy-id  %s@%s' %(user,ip)
+	# 	child = pexpect.spawn( str_ssh )
+	# 	try:
+	# 		index = child.expect(['continue connecting \(yes/no\)','\'s password:',pexpect.EOF],timeout=20)
+	# 		print(index)
+	# 		if index == 0:
+	# 			child.sendline('yes')
+	# 			print(child.after,child.before)
+	# 		if index == 1:
+	# 			child.sendline(password)
+	# 			child.expect('password:')
+	# 			child.sendline(password)
+	# 			# print child.after,child.before
+	# 			return 0
+	# 		if index == 2:
+	# 			# print '[ failed ]'
+	# 			# print child.after,child.before
+	# 			child.close()
+	# 			return 1
+	# 	except pexpect.TIMEOUT:
+	# 		# print child.after,child.before
+	# 		child.close()
+	# 		return 1
+	# 	else:
+	# 		print('failed')
+	# 		return 1 
+
+
+	def shutdown():
+		subprocess.call(['ssh',user+'@'+ip,'systemctl shutdown'])
+
+
+	def restart():
+		subprocess.call(['ssh',user+'@'+ip,'systemctl reboot'])
+
+		

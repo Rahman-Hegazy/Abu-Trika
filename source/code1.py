@@ -5,7 +5,7 @@ from . import code2
 
 
 
-
+# scan thread
 class code101(QtCore.QThread):
 	"""docstring for codeclass"""
 	def __init__(self,obj):
@@ -101,7 +101,7 @@ class code101(QtCore.QThread):
 
 
 
-
+# >> thread
 class code102(QtCore.QThread):
 
 	def __init__(self, obj):
@@ -120,7 +120,7 @@ class code102(QtCore.QThread):
 			 self.obj.list_ip_3.addItem(item.text())
 
 
-
+# << thread
 class code103(QtCore.QThread):
 
 	def __init__(self, obj):
@@ -139,7 +139,44 @@ class code103(QtCore.QThread):
 			 self.obj.list_ip_2.addItem(item.text())
 
 
-class code104(QtCore.QThread):
+#auth thread
+# class code104(QtCore.QThread):
+
+# 	def __init__(self, obj):
+# 		QtCore.QThread.__init__(self)
+# 		self.obj=obj
+	
+# 	def __del__(self):
+# 		self.wait()
+
+
+# 	def run(self):
+# 		if self.obj.line_user.text(): 
+# 			if self.obj.line_pass.text()==self.obj.line_pass_again.text():
+# 				user=self.obj.line_user.text()
+# 				password=self.obj.line_pass.text()
+				
+# 				for x in range(self.obj.list_ip_3.count()):
+# 					if code2.code202.auth(user,passwords,self.obj.list_ip_3.row(x).text())
+# 						self.obj.list_success.addItem('failed to auth'+': '+list_ip_3.row(x).text())
+# 					else:
+# 						self.obj.list_success.addItem('success: '+list_ip_3.row(x).text())
+
+
+# 			else:
+# 				self.obj.list_success.clear()
+# 				self.obj.list_success.addItem("passwords don't match")
+
+# 		else:
+# 			self.obj.list_success.clear()
+# 			self.obj.list_success.addItem('please provide ur user name ')		
+
+
+
+
+
+#shutdown thread
+class code105(QtCore.QThread):
 
 	def __init__(self, obj):
 		QtCore.QThread.__init__(self)
@@ -150,29 +187,24 @@ class code104(QtCore.QThread):
 
 
 	def run(self):
-		if self.obj.line_user.text(): 
-			if self.obj.line_pass.text()==self.obj.line_pass_again.text():
-				user=self.obj.line_user.text()
-				password=self.obj.line_pass.text()
-				
-				items=self.obj.list_ip_3.items()
+		 code2.code202.shutdown()
 
-				for item in items:
-					if code2.code202.auth(user,password,item.text()):
-						self.obj.list_ip_3.takeItem(self.obj.list_ip_3.row(item))
-						self.obj.list_success.addItem(item.text()+' '+'auth failed')
-					else:
-						self.obj.list_ip_3.takeItem(self.obj.list_ip_3.row(item))
-						self.obj.list_success.addItem(item.text()+' '+'auth success')	
-						
 
-			else:
-				self.obj.list_success.clear()
-				self.obj.list_success.addItem("passwords don't match")
 
-		else:
-			self.obj.list_success.clear()
-			self.obj.list_success.addItem('please provide ur user name ')		
 
-					#add success to list_success !!
-					# add failed to list success!! but write fail next to it 
+#restart thread
+class code106(QtCore.QThread):
+
+	def __init__(self, obj):
+		QtCore.QThread.__init__(self)
+		self.obj=obj
+	
+	def __del__(self):
+		self.wait()
+
+
+	def run(self):
+		 code2.code202.restart()
+
+
+			
