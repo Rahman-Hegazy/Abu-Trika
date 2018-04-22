@@ -187,9 +187,16 @@ class code105(QtCore.QThread):
 
 
 	def run(self):
-		 code2.code202.shutdown()
+	if user=self.obj.line_user_controls.text():
+	 	
+		if self.obj.line_pass_again_controls==line_pass_controls:
+			code2.code202.shutdown()
+		else:
+			self.obj.list_success_controls.addItem('passwords don\'t match')
 
-
+	else:
+		self.obj.list_success_controls.addItem('user name must be provided')
+					
 
 
 #restart thread
@@ -204,7 +211,15 @@ class code106(QtCore.QThread):
 
 
 	def run(self):
-		 code2.code202.restart()
+		if user=self.obj.line_user_controls.text():
+	 	
+			if self.obj.line_pass_again_controls==line_pass_controls:
+				code2.code202.restart()
+			else:
+				self.obj.list_success_controls.addItem('passwords don\'t match')
 
+		else:
+			self.obj.list_success_controls.addItem('user name must be provided')
+	
 
 			

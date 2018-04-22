@@ -38,7 +38,7 @@
    <string>Abu-Trika</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="1">
+   <item row="0" column="0">
     <widget class="QTabWidget" name="Tab2">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -321,7 +321,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QListWidget" name="list_success_2">
+      <widget class="QListWidget" name="list_success_controls">
        <property name="geometry">
         <rect>
          <x>250</x>
@@ -370,15 +370,63 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="line_recheck">
+      <widget class="QSplitter" name="splitter_3">
        <property name="geometry">
         <rect>
-         <x>260</x>
-         <y>200</y>
-         <width>113</width>
-         <height>25</height>
+         <x>240</x>
+         <y>300</y>
+         <width>142</width>
+         <height>126</height>
         </rect>
        </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>username</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="line_user_controls"/>
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>password</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="line_pass_controls">
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>password again :</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="line_pass_again_controls">
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QSplitter" name="splitter_4">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>180</y>
+         <width>142</width>
+         <height>42</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>write above numbers</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="line_check_2"/>
       </widget>
      </widget>
     </widget>
