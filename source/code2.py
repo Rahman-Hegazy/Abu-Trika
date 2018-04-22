@@ -69,11 +69,14 @@ class code202(object):
 	# 		return 1 
 
 
-	def shutdown():
+	def shutdown(user,ip):
 		subprocess.call(['ssh',user+'@'+ip,'systemctl shutdown'])
+		
 
 
-	def restart():
+	def restart(user,ip):
 		subprocess.call(['ssh',user+'@'+ip,'systemctl reboot'])
 
 		
+	def backup(user,ip,destination,tobackup):
+		subprocess.call(['scp','-R',user+'@'+ip+':'+tobackup,destination])

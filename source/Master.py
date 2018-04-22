@@ -158,6 +158,9 @@ class Ui_Form(object):
         self.line_check_2 = QtWidgets.QLineEdit(self.splitter_4)
         self.line_check_2.setObjectName("line_check_2")
         self.Tab2.addTab(self.tab_controls, "")
+        self.tab = QtWidgets.QWidget()
+        self.tab.setObjectName("tab")
+        self.Tab2.addTab(self.tab, "")
         self.gridLayout.addWidget(self.Tab2, 0, 0, 1, 1)
 
         self.retranslateUi(Form)
@@ -193,4 +196,5 @@ class Ui_Form(object):
         self.label_6.setText(_translate("Form", "password again :"))
         self.label_7.setText(_translate("Form", "write above numbers"))
         self.Tab2.setTabText(self.Tab2.indexOf(self.tab_controls), _translate("Form", "controls"))
+        self.Tab2.setTabText(self.Tab2.indexOf(self.tab), _translate("Form", "Backup"))
 

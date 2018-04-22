@@ -189,8 +189,9 @@ class code105(QtCore.QThread):
 	def run(self):
 	if user=self.obj.line_user_controls.text():
 	 	
-		if self.obj.line_pass_again_controls==line_pass_controls:
-			code2.code202.shutdown()
+		if self.obj.line_pass_again_controls.text()==line_pass_controls.text():
+			password=self.obj.list_pass_controls.text()
+			code2.code202.shutdown(user,password)
 		else:
 			self.obj.list_success_controls.addItem('passwords don\'t match')
 
@@ -213,8 +214,10 @@ class code106(QtCore.QThread):
 	def run(self):
 		if user=self.obj.line_user_controls.text():
 	 	
-			if self.obj.line_pass_again_controls==line_pass_controls:
-				code2.code202.restart()
+			if self.obj.line_pass_again_controls.text()==self.obj.line_pass_controls.text():
+				password=self.obj.list_pass_controls.text()
+				code2.code202.restart(user,password)
+
 			else:
 				self.obj.list_success_controls.addItem('passwords don\'t match')
 
