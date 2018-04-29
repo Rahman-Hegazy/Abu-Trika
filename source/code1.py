@@ -50,8 +50,12 @@ class code101(QtCore.QThread):
 			else :
 				self.obj.list_ip.clear()
 				self.obj.list_ip_2.clear()
+				self.obj.list_ip_4.clear()
+				self.obj.list_ip_5.clear()
 				self.obj.list_ip.addItems(res)	
 				self.obj.list_ip_2.addItems(res)	
+				self.obj.list_ip_5.addItems(res)	
+				self.obj.list_ip_4.addItems(res)	
 			
 
 
@@ -64,9 +68,6 @@ class code101(QtCore.QThread):
 				self.signal2.connect(self.enable)
 				self.signal2.emit()
 
-	# def run(self):
-	# 	print(code2.code202.ipChk('192.168.1.1'))
-	
 
 
 	def disable(self):
@@ -140,36 +141,37 @@ class code103(QtCore.QThread):
 
 
 #auth thread
-class code104(QtCore.QThread):
 
-	def __init__(self, obj):
-		QtCore.QThread.__init__(self)
-		self.obj=obj
+# class code104(QtCore.QThread):
+
+# 	def __init__(self, obj):
+# 		QtCore.QThread.__init__(self)
+# 		self.obj=obj
 	
-	def __del__(self):
-		self.wait()
+# 	def __del__(self):
+# 		self.wait()
 
 
-	def run(self):
-		if self.obj.line_user.text(): 
-			if self.obj.line_pass.text()==self.obj.line_pass_again.text():
-				user=self.obj.line_user.text()
-				password=self.obj.line_pass.text()
+# 	def run(self):
+# 		if self.obj.line_user.text(): 
+# 			user=self.obj.line_user.text()
+# 			if self.obj.line_pass.text()==self.obj.line_pass_again.text():
+# 				password=self.obj.line_pass.text()
 				
-				for x in range(self.obj.list_ip_3.count()):
-					if code2.code202.auth(user,passwords,self.obj.list_ip_3.row(x).text()):
-						self.obj.list_success.addItem('failed to auth'+': '+list_ip_3.row(x).text())
-					else:
-						self.obj.list_success.addItem('success: '+list_ip_3.row(x).text())
+# 				for x in range(self.obj.list_ip_3.count()):
+# 					if code2.code202.auth(user,password,self.obj.list_ip_3.row(x).text()):
+# 						self.obj.list_success.addItem('failed to auth'+': '+list_ip_3.row(x).text())
+# 					else:
+# 						self.obj.list_success.addItem('success: '+list_ip_3.row(x).text())
 
 
-			else:
-				self.obj.list_success.clear()
-				self.obj.list_success.addItem("passwords don't match")
+# 			else:
+# 				self.obj.list_success.clear()
+# 				self.obj.list_success.addItem("passwords don't match")
 
-		else:
-			self.obj.list_success.clear()
-			self.obj.list_success.addItem('please provide ur user name ')		
+# 		else:
+# 			self.obj.list_success.clear()
+# 			self.obj.list_success.addItem('please provide ur user name ')		
 
 
 
@@ -187,12 +189,20 @@ class code105(QtCore.QThread):
 
 
 	def run(self):
-		if user==self.obj.line_user_controls.text():
+		if self.obj.line_user_controls.text():
 			user=self.obj.line_user_controls.text()
 	 		
-			if self.obj.line_pass_again_controls.text()==line_pass_controls.text():
-				password=self.obj.list_pass_controls.text()
-				code2.code202.shutdown(user,password)
+			if self.obj.line_pass_again_controls.text()==self.obj.line_pass_controls.text():
+				password=self.obj.line_pass_controls.text()
+				if self.obj.list_ip_4.currentItem():
+					ip=self.obj.list_ip_4.currentItem().text()
+					rcode=code2.code202.shutdown(user,password,ip)
+				else:
+					self.obj.list_success_controls.addItem('please choose an ip')	
+				if rcode==0:
+					self.obj.list_success_controls.addItem('ok....')
+				else:
+					self.obj.list_success_controls.addItem('please try again later')
 			else:
 				self.obj.list_success_controls.addItem('passwords not matching')
 
@@ -213,20 +223,25 @@ class code106(QtCore.QThread):
 
 
 	def run(self):
-		
 		if self.obj.line_user_controls.text():
-	 		user=self.obj.line_user_controls.text()
-	 		if self.obj.line_pass_controls.text()==self.obj.line_pass_again_controls.text():
-	 			password=self.obj.line_pass_controls.text()
-	 			code2.code202.restart(user,password)
-
-	 		else:
-	 			self.obj.list_success_controls.addItem('passwords not matching')
+			user=self.obj.line_user_controls.text()
+	 		
+			if self.obj.line_pass_again_controls.text()==self.obj.line_pass_controls.text():
+				password=self.obj.line_pass_controls.text()
+				if self.obj.list_ip_4.currentItem():
+					ip=self.obj.list_ip_4.currentItem().text()
+					rcode=code2.code202.restart(user,password,ip)
+				else:
+					self.obj.list_success_controls.addItem('please choose an ip')	
+				if rcode==0:
+					self.obj.list_success_controls.addItem('ok....')
+				else:
+					self.obj.list_success_controls.addItem('please try again later')
+			else:
+				self.obj.list_success_controls.addItem('passwords not matching')
 
 		else:
 			self.obj.list_success_controls.addItem('user name must be provided')
-
-
 
 
 

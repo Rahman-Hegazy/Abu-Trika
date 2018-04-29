@@ -39,7 +39,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QTabWidget" name="Tab2">
+    <widget class="QTabWidget" name="Tabs">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -59,7 +59,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab_hosts">
       <property name="sizePolicy">
@@ -387,7 +387,20 @@
          <string>username</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="line_user_controls"/>
+       <widget class="QLineEdit" name="line_user_controls">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>false</bool>
+        </property>
+       </widget>
        <widget class="QLabel" name="label_5">
         <property name="text">
          <string>password</string>
@@ -433,6 +446,75 @@
       <attribute name="title">
        <string>Backup</string>
       </attribute>
+      <widget class="QListWidget" name="list_ip_5">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>10</y>
+         <width>256</width>
+         <height>192</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="line_destination">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>305</y>
+         <width>331</width>
+         <height>19</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="line_source">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>261</y>
+         <width>331</width>
+         <height>19</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_backup">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>360</y>
+         <width>83</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Backup</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>240</y>
+         <width>64</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>source</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>284</y>
+         <width>81</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>destination</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </item>
