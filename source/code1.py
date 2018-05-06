@@ -26,11 +26,15 @@ class code101(QtCore.QThread):
 		subnet=self.obj.combo_netmask.currentText()
 		self.obj.list_ip.clear()
 		self.obj.list_ip_2.clear()
+		self.obj.list_ip_3.clear()
+		self.obj.list_ip_4.clear()
+		self.obj.list_ip_5.clear()
 		self.obj.list_ip.addItem('working....Plz don\'t close')
-		self.signal1.connect(self.disable)
+		self.obj.list_ip_2.addItem('working....Plz don\'t close')
+		self.obj.list_ip_4.addItem('working....Plz don\'t close')
+		self.obj.list_ip_5.addItem('working....Plz don\'t close')
+		self.signal1.connect(lambda:self.disable([self.obj.btn_scan]))
 		self.signal1.emit()
-		
-
 		try:
 			
 			if not(code2.code202.ipChk(network)):
@@ -43,7 +47,9 @@ class code101(QtCore.QThread):
 
 
 			if len(res)==0:
+				self.obj.list_ip.clear()
 				self.obj.list_ip.addItem('make sure ip is right')
+
 
 			
 
@@ -61,7 +67,6 @@ class code101(QtCore.QThread):
 
 			self.signal2.connect(self.enable)
 			self.signal2.emit()
- 
 		except :
 				self.obj.list_ip.clear()
 				self.obj.list_ip.addItem("please enter a valid ip")
@@ -70,10 +75,13 @@ class code101(QtCore.QThread):
 
 
 
-	def disable(self):
-			self.obj.btn_scan.setEnabled(False)
-			self.obj.combo_netmask.setEnabled(False)
-			self.obj.line_network.setEnabled(False)
+	def disable(self,items):
+		for item in items:
+			item.setEnabled(False)
+
+			# self.obj.btn_scan.setEnabled(False)
+			# self.obj.combo_netmask.setEnabled(False)
+			# self.obj.line_network.setEnabled(False)
 
 
 	def enable(self):
@@ -243,8 +251,3 @@ class code106(QtCore.QThread):
 		else:
 			self.obj.list_success_controls.addItem('user name must be provided')
 
-
-
-	
-
-			
