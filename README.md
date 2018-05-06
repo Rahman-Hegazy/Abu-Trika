@@ -7,4 +7,4 @@
 	pyqt5 
 	nmap
 	python3-nmap
-	pexpect
+	python3-pexpect
